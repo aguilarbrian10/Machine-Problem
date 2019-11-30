@@ -1,0 +1,24 @@
+function [] = projectile(h,vo,ang,ax,ay)
+
+if ay==0
+    error('\t\"ay\" cannot be equal to %1.0f as the projectile will not reach the ground.',ay)
+end
+
+tfinal=(-vo*sind(ang)+sqrt((vo*sind(ang))^2-2*ay*h))/ay;
+
+if tfinal<=0
+    tfinal=(-vo*sind(ang)-sqrt((vo*sind(ang))^2-2*ay*h))/ay;
+end
+
+t=0:0.001:tfinal;
+y=h+vo.*sind(ang).*t+(1./2).*ay.*t.^2;
+x=vo.*cosd(ang).*t+(1./2).*ax.*t.^2;
+
+plot(x,y,'--r','linewidth',2)
+grid on
+axis tight
+axis equal
+xlabel 'range in meters(m)'; ylabel 'height in meters(m)'; title 'Projectile Motion'
+legend('trajectory')
+
+end
