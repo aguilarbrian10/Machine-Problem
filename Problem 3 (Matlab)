@@ -1,0 +1,30 @@
+function [coeff] = datafit(data)
+x = data(:,1);
+y = data(:,2);
+
+if length(data)<=10
+    for n=1:length(data)-1
+        coeff=polyfit(x,y,n);
+        f=polyval(coeff,x);
+        error(n)=norm(y-f);
+    end 
+else
+    for n=1:10
+      coeff=polyfit(x,y,n);
+      f=polyval(coeff,x);
+      error(n)=norm(y-f);
+    end 
+end
+
+n=find(error==min(error));
+coeff=polyfit(x,y,n);
+
+
+plot(min(x):0.0001:max(x),polyval(coeff,min(x):0.0001:max(x)),'r'),hold on
+scatter(x,y,'markerfacecolor','k','markeredgecolor','k')
+axis tight
+grid on
+xlabel 'x_i'; ylabel 'y_i'; title ' Curve of Best Fit for Data Points (x_i, y_i)'
+legend('graph of best fit','data points(x_i,y_i)')
+
+end
