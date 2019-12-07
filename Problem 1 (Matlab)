@@ -1,21 +1,13 @@
 n=0:99;
 f = n.^2-7;
 for i=1:100
-    if i==10
-        f(i)= NaN;
-    elseif i>=10
+    if i>=10
         a=i;
             while a>10
                 a=a-10;
             end
-            if a==10  
-                f(i)= NaN;
-            elseif a<10
-                f(i)=f(a);
-                     
-             end
+            f(i)=f(a);
      else
         continue
-    end
 end
 stem(n,f)
