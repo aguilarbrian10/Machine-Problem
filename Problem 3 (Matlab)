@@ -1,6 +1,7 @@
 function [coeff] = datafit(data)
 x = data(:,1);
 y = data(:,2);
+error=zeros(1,length(data)-1); %preallocation
 
 if length(data)<=10
     for n=1:length(data)-1
