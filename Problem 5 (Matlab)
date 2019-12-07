@@ -1,30 +1,23 @@
 n=0:199;
 x = input('Input a function, x(n): ');
+y=zeros(1,200) %preallocation
 
 for i=1:200
     
     if i==1
-        X(i)=x(i);
-        Y(i)=-1.5*x(i)+2*x(i+1)-0.5*x(i+2);
+        y(i)=-1.5*x(i)+2*x(i+1)-0.5*x(i+2);
         
-    elseif i>1 && i<199
-        X(i)=x(i);
-        Y(i)=0.5*x(i+1)-0.5*x(i-1);
+    elseif i>1 && i<=199
+        y(i)=0.5*x(i+1)-0.5*x(i-1);
         
     elseif i==200
-        X(i)=x(i);
-        Y(i)=1.5*x(i)-2*x(i-1)+0.5*x(i-2);
-        
-    else
-        X(i)=x(i);
-        Y(i)=NaN;   
-        
-        end
+        y(i)=1.5*x(i)-2*x(i-1)+0.5*x(i-2);
+    
+    end
 end
 
-n = 0:199;
-plot(n,X,'-ob','markersize',1,'markerfacecolor','b'), hold on,
-plot(n,Y,'-or','markersize',1,'markerfacecolor','r'),
+plot(n,x,'-ob','markersize',1,'markerfacecolor','b'), hold on,
+plot(n,y,'-or','markersize',1,'markerfacecolor','r'),
 axis tight
 grid on
 xlabel 'n'; ylabel 'x(n) and y(n)'; title 'Graphs of x(n) & y(n)';
