@@ -12,13 +12,15 @@ end
 
 t=0:0.001:tfinal;
 y=h+vo.*sind(ang).*t+(1./2).*ay.*t.^2;
-x=vo.*cosd(ang).*t+(1./2).*ax.*t.^2;
+xactual=vo.*cosd(ang).*t+(1./2).*ax.*t.^2;
+xideal=vo.*cosd(ang).*t;
 
-plot(x,y,'--r','linewidth',2)
+plot(xideal,y,'--r','linewidth',1), hold on
+plot(xactual,y,'-','linewidth',1)
 grid on
 axis tight
 axis equal
 xlabel 'range in meters(m)'; ylabel 'height in meters(m)'; title 'Projectile Motion'
-legend('trajectory')
+legend('ideal trajectory','actual trajectory')
 
 end
