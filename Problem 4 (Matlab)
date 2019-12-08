@@ -1,6 +1,6 @@
 function [] = Problem_4_Matlab(h,vo,ang,ax,ay)
 if ay>=0
-    error('\t\"ay\" cannot be equal to %1.0f as the projectile will not reach the ground.',ay)
+    error('\t\"ay\" cannot be greater than or equal to %1.0f as the projectile will not reach the ground.',ay)
 end
 
 tfinal=(-vo*sind(ang)+sqrt((vo*sind(ang))^2-2*ay*h))/ay;
