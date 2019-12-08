@@ -11,10 +11,10 @@ if tfinal<=0
 end
 
 t=0:0.001:tfinal;
-yactual=h+vo.*sind(ang).*t+(1./2).*ay.*t.^2;
 xactual=vo.*cosd(ang).*t+(1./2).*ax.*t.^2;
+yactual=h+vo.*sind(ang).*t+(1./2).*ay.*t.^2;
 xideal=vo.*cosd(ang).*t;
-yideal=h+vo.*sind(ang).*t+(1./2).*ay.*(-9.8).^2;
+yideal=h+vo.*sind(ang).*t+(1./2).*(-9.8).*t.^2;
 
 plot(xideal,yideal,'--r','linewidth',1), hold on
 plot(xactual,yactualf,'-','linewidth',1)
