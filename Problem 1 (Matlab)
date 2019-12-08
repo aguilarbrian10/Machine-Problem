@@ -9,5 +9,6 @@ for i=1:100
             f(i)=f(a);
      else
         continue
+     end
 end
 stem(n,f)
