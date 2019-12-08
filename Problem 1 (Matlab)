@@ -6,9 +6,8 @@ for i=1:100
             while a>10
                 a=a-10;
             end
-            f(i)=f(a);
-     else
+            f(i)=f(a);        
+    end
         continue
-     end
 end
 stem(n,f)
