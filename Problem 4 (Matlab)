@@ -1,27 +1,25 @@
 function [] = projectile(h,vo,ang,ax,ay)
-
 if ay==0
     error('\t\"ay\" cannot be equal to %1.0f as the projectile will not reach the ground.',ay)
 end
 
 tfinal=(-vo*sind(ang)+sqrt((vo*sind(ang))^2-2*ay*h))/ay;
-
 if tfinal<=0
     tfinal=(-vo*sind(ang)-sqrt((vo*sind(ang))^2-2*ay*h))/ay;
 end
 
 t=0:0.001:tfinal;
-xactual=vo.*cosd(ang).*t+(1./2).*ax.*t.^2;
 yactual=h+vo.*sind(ang).*t+(1./2).*ay.*t.^2;
+yideal=h+vo.*sind(ang).*t+(1./2).*-9.8.*t.^2;
+xactual=vo.*cosd(ang).*t+(1./2).*ax.*t.^2;
 xideal=vo.*cosd(ang).*t;
-yideal=h+vo.*sind(ang).*t+(1./2).*(-9.8).*t.^2;
+
 
 plot(xideal,yideal,'--r','linewidth',1), hold on
-plot(xactual,yactualf,'-','linewidth',1)
+plot(xactual,yactual,'-','linewidth',1)
 grid on
 axis tight
 axis equal
 xlabel 'range in meters(m)'; ylabel 'height in meters(m)'; title 'Projectile Motion'
 legend('ideal trajectory','actual trajectory')
-
 end
