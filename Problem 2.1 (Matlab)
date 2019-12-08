@@ -1,4 +1,4 @@
-function [center,radius,vector] = circle(p1,p2,p3)
+function [center,radius,vector] = Problem_2_Matlab(p1,p2,p3)
 
 x1=p1(1);
 x2=p2(1);
