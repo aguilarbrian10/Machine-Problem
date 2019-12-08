@@ -1,4 +1,4 @@
-function [FinalCoeff] = datafit(data)
+function [FinalCoeff] = Problem_3_Matlab(data)
 x = data(:,1);
 y = data(:,2);
 error=zeros(1,length(data)-1); %preallocation
