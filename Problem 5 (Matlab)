@@ -1,6 +1,6 @@
 n=0:199;
 x = input('Input a function, x(n): ');
-y=zeros(1,200) %preallocation
+y=zeros(1,200); %preallocation
 
 for i=1:200
     
@@ -12,12 +12,12 @@ for i=1:200
         
     elseif i==200
         y(i)=1.5*x(i)-2*x(i-1)+0.5*x(i-2);
-    
+  
     end
 end
 
-plot(n,x,'-ob','markersize',1,'markerfacecolor','b'), hold on,
-plot(n,y,'-or','markersize',1,'markerfacecolor','r'),
+plot(n,x,'-ob','markersize',0.5,'markerfacecolor','b'), hold on,
+plot(n,y,'-or','markersize',0.5,'markerfacecolor','r'),
 axis tight
 grid on
 xlabel 'n'; ylabel 'x(n) and y(n)'; title 'Graphs of x(n) & y(n)';
