@@ -13,7 +13,7 @@ radius=((((x1-h)^2+(y1-k)^2)^(1/2)));
 D=-2*h;
 E=-2*k;
 F= h^2+k^2-radius^2;
-center=[h,k];
-vector=[D,E,F];
+center=[h;k];
+vector=[D;E;F];
 end
 
