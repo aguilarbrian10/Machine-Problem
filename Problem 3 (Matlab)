@@ -1,27 +1,26 @@
-function [coeff] = datafit(data)
+function [FinalCoeff] = datafit(data)
 x = data(:,1);
 y = data(:,2);
 error=zeros(1,length(data)-1); %preallocation
 
 if length(data)<=10
-    for n=1:length(data)-1
-        coeff=polyfit(x,y,n);
-        f=polyval(coeff,x);
-        error(n)=norm(y-f);
-    end 
+    m=length(data)-1;
 else
-    for n=1:10
-      coeff=polyfit(x,y,n);
-      f=polyval(coeff,x);
-      error(n)=norm(y-f);
-    end 
+    m=10
 end
 
-n=find(error==min(error));
+for n=1:m
 coeff=polyfit(x,y,n);
+f=polyval(coeff,x);
+error(n)=norm(y-f);
+end
+        
+FindError=find(error==min(error));
+FinalCoeff=polyfit(x,y,FindError);
+FinalCoeff=FinalCoeff';
 
 
-plot(min(x):0.0001:max(x),polyval(coeff,min(x):0.0001:max(x)),'r'),hold on
+plot(min(x):0.0001:max(x),polyval(FinalCoeff,min(x):0.0001:max(x)),'r'),hold on
 scatter(x,y,'markerfacecolor','k','markeredgecolor','k')
 axis tight
 grid on
