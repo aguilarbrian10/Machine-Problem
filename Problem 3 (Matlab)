@@ -3,12 +3,12 @@ x = data(:,1);
 y = data(:,2);
 
 if length(data)<=10
-    error=zeros(1,length(data)-1); %preallocation
     m=length(data)-1;
 else
-    error=zeros(1,10); %preallocation
     m=10;
 end
+
+error=zeros(1,m); %preallocation
 
 for n=1:m
 coeff=polyfit(x,y,n);
