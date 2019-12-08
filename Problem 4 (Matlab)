@@ -1,4 +1,4 @@
-function [] = projectile(h,vo,ang,ax,ay)
+function [] = Problem_4_Matlab(h,vo,ang,ax,ay)
 if ay==0
     error('\t\"ay\" cannot be equal to %1.0f as the projectile will not reach the ground.',ay)
 end
